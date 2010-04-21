@@ -1,202 +1,38 @@
 #!/usr/bin/env python
 
+__title__ = 'MakeChart'
+__version__ = 0.1
+__author__ = "Ryan McGreal ryan@quandyfactory.com"
+__homepage__ = "http://quandyfactory.com/projects/56/makechart"
+__copyright__ = "(C) 2009 by Ryan McGreal. Licenced under GNU GPL 2.0\nhttp://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
 
-# first field is month, second is production
-dataset = [
-    ('1994-01', '68440271'),
-    ('1994-02', '68170673'),
-    ('1994-03', '68088193'),
-    ('1994-04', '67733545'),
-    ('1994-05', '68107147'),
-    ('1994-06', '68507759'),
-    ('1994-07', '68181915'),
-    ('1994-08', '68050716'),
-    ('1994-09', '68711100'),
-    ('1994-10', '69294751'),
-    ('1994-11', '69695885'),
-    ('1994-12', '70067858'),
-    ('1995-01', '69812034'),
-    ('1995-02', '70215423'),
-    ('1995-03', '69374119'),
-    ('1995-04', '70290610'),
-    ('1995-05', '70289352'),
-    ('1995-06', '69242078'),
-    ('1995-07', '70286348'),
-    ('1995-08', '70422130'),
-    ('1995-09', '70904406'),
-    ('1995-10', '70500067'),
-    ('1995-11', '70797231'),
-    ('1995-12', '71151450'),
-    ('1996-01', '71222819'),
-    ('1996-02', '71525114'),
-    ('1996-03', '71598103'),
-    ('1996-04', '71478647'),
-    ('1996-05', '71416519'),
-    ('1996-06', '71675479'),
-    ('1996-07', '71864374'),
-    ('1996-08', '71427393'),
-    ('1996-09', '71927211'),
-    ('1996-10', '72399606'),
-    ('1996-11', '72944428'),
-    ('1996-12', '73531186'),
-    ('1997-01', '73375121'),
-    ('1997-02', '73896036'),
-    ('1997-03', '73876492'),
-    ('1997-04', '74335165'),
-    ('1997-05', '73693874'),
-    ('1997-06', '72892213'),
-    ('1997-07', '73396711'),
-    ('1997-08', '74304030'),
-    ('1997-09', '74754155'),
-    ('1997-10', '75268835'),
-    ('1997-11', '75111290'),
-    ('1997-12', '75000358'),
-    ('1998-01', '76467522'),
-    ('1998-02', '76871290'),
-    ('1998-03', '76687770'),
-    ('1998-04', '76571567'),
-    ('1998-05', '75942674'),
-    ('1998-06', '75636719'),
-    ('1998-07', '75182644'),
-    ('1998-08', '74472830'),
-    ('1998-09', '74489251'),
-    ('1998-10', '74659311'),
-    ('1998-11', '75656144'),
-    ('1998-12', '75344007'),
-    ('1999-01', '75672874'),
-    ('1999-02', '76113392'),
-    ('1999-03', '75702694'),
-    ('1999-04', '74287279'),
-    ('1999-05', '74115792'),
-    ('1999-06', '73062917'),
-    ('1999-07', '74684931'),
-    ('1999-08', '74606481'),
-    ('1999-09', '74720893'),
-    ('1999-10', '75317254'),
-    ('1999-11', '75321564'),
-    ('1999-12', '74634116'),
-    ('2000-01', '75719111'),
-    ('2000-02', '76313418'),
-    ('2000-03', '76360128'),
-    ('2000-04', '76973432'),
-    ('2000-05', '77514522'),
-    ('2000-06', '77260025'),
-    ('2000-07', '77812924'),
-    ('2000-08', '78706893'),
-    ('2000-09', '78900175'),
-    ('2000-10', '79265035'),
-    ('2000-11', '79955944'),
-    ('2000-12', '78313693'),
-    ('2001-01', '78322962'),
-    ('2001-02', '78210190'),
-    ('2001-03', '78940621'),
-    ('2001-04', '77935998'),
-    ('2001-05', '77310040'),
-    ('2001-06', '75741297'),
-    ('2001-07', '77727339'),
-    ('2001-08', '77888010'),
-    ('2001-09', '77449994'),
-    ('2001-10', '77452141'),
-    ('2001-11', '77963817'),
-    ('2001-12', '77219526'),
-    ('2002-01', '76551015'),
-    ('2002-02', '76693689'),
-    ('2002-03', '76496952'),
-    ('2002-04', '76017663'),
-    ('2002-05', '76677904'),
-    ('2002-06', '76367695'),
-    ('2002-07', '76785834'),
-    ('2002-08', '76614184'),
-    ('2002-09', '77162442'),
-    ('2002-10', '78615521'),
-    ('2002-11', '78872486'),
-    ('2002-12', '76931702'),
-    ('2003-01', '77485659'),
-    ('2003-02', '79257669'),
-    ('2003-03', '79752244'),
-    ('2003-04', '78601101'),
-    ('2003-05', '78587823'),
-    ('2003-06', '77864858'),
-    ('2003-07', '78691119'),
-    ('2003-08', '79256399'),
-    ('2003-09', '80107496'),
-    ('2003-10', '81100923'),
-    ('2003-11', '81460260'),
-    ('2003-12', '82790291'),
-    ('2004-01', '82378597'),
-    ('2004-02', '82393942'),
-    ('2004-03', '82183006'),
-    ('2004-04', '81975686'),
-    ('2004-05', '81585687'),
-    ('2004-06', '83493486'),
-    ('2004-07', '84028560'),
-    ('2004-08', '82972355'),
-    ('2004-09', '83518132'),
-    ('2004-10', '84421693'),
-    ('2004-11', '84220910'),
-    ('2004-12', '83862112'),
-    ('2005-01', '84166814'),
-    ('2005-02', '84564757'),
-    ('2005-03', '84731234'),
-    ('2005-04', '85113436'),
-    ('2005-05', '85237558'),
-    ('2005-06', '84750917'),
-    ('2005-07', '84474046'),
-    ('2005-08', '84529671'),
-    ('2005-09', '83770692'),
-    ('2005-10', '83863914'),
-    ('2005-11', '84661754'),
-    ('2005-12', '84740354'),
-    ('2006-01', '84654649'),
-    ('2006-02', '84629220'),
-    ('2006-03', '84290563'),
-    ('2006-04', '84500160'),
-    ('2006-05', '84062540'),
-    ('2006-06', '83919265'),
-    ('2006-07', '85125354'),
-    ('2006-08', '84873489'),
-    ('2006-09', '84494853'),
-    ('2006-10', '84846279'),
-    ('2006-11', '84478334'),
-    ('2006-12', '84373627'),
-    ('2007-01', '84131325'),
-    ('2007-02', '84357719'),
-    ('2007-03', '84265845'),
-    ('2007-04', '84573659'),
-    ('2007-05', '84075743'),
-    ('2007-06', '83727228'),
-    ('2007-07', '84266094'),
-    ('2007-08', '83587237'),
-    ('2007-09', '84279624'),
-    ('2007-10', '85142411'),
-    ('2007-11', '84956682'),
-    ('2007-12', '85535924'),
-    ('2008-01', '85573620'),
-    ('2008-02', '85750936'),
-    ('2008-03', '85949042'),
-    ('2008-04', '85336833'),
-    ('2008-05', '85820651'),
-    ('2008-06', '85696025'),
-    ('2008-07', '86622129'),
-    ('2008-08', '85323890'),
-    ('2008-09', '83783731'),
-    ('2008-10', '85354287'),
-    ('2008-11', '85200628'),
-    ('2008-12', '84106905'),
-    ('2009-01', '83118416'),
-    ('2009-02', '83672559'),
-    ('2009-03', '83605761'),
-    ('2009-04', '83655258'),
-    ('2009-05', '83213243'),
-    ('2009-06', '83479899'),
-    ('2009-07', '84493896'),
-    ('2009-08', '84127048'),
-    ('2009-09', '84642604'),
-    ('2009-10', '85134919'),
-    ('2009-11', '85475294'),
-    ('2009-12', '85348501'),
-    ('2010-01', '85528533'),
-]
+"""
+MakeChart is a simple script written in Python that takes an array and generates a bar chart.
+"""
+
+def add_sep(n, sep=','):
+    """
+    Adds a separator (default comma) to long numbers.
+    Pilfered from here: http://snippets.dzone.com/posts/show/584
+    Added logic to deal with decimals.
+    """
+    string = str(abs(n))[::-1].split('.') # deal with decimals
+    s = string[0]
+    try: decimal = '.%s' % (string[1])
+    except: decimal = ''
+        
+    groups = []
+    i = 0
+    while i < len(s):
+        groups.append(s[i:i+3])
+        i+=3
+    retval = sep.join(groups)[::-1]
+    if n < 0:
+        return '-%s' % retval
+    else:
+        return '%s%s' % (retval, decimal)
+
+        
 
 def get_highest_value(dataset, column):
     """
@@ -218,7 +54,7 @@ def vertical(string):
     return '%s<br>' % ('<br>'.join([char for char in string]))
 
     
-def make_chart(dataset, caption):
+def make_chart(dataset, caption, unit=''):
     """
     Makes an HTML bar chart out of a dataset.
     """
@@ -230,10 +66,11 @@ def make_chart(dataset, caption):
     highest_value = get_highest_value(dataset, 1)
     ratio = make_ratio(highest_value, 200)
     for datum in dataset:
-        bars.append('<td class="bar"><div style="height: %spx" title="%s: %s"></div></td>' % (int(int(datum[1])*ratio), datum[0], datum[1]))
+        
+        bars.append('<td class="bar"><div style="height: %spx" title="%s: %s %s"></div></td>' % (int(int(datum[1])*ratio), datum[0], add_sep(datum[1]), unit))
         labels.append('<td>%s</td>' % (vertical(datum[0])))
     
-    addline('<table>')
+    addline('<table class="makechart">')
     addline('<caption>%s</caption>' % (caption))
     addline('<tr class="bar">')
     addline('\n'.join(bars))
@@ -243,5 +80,44 @@ def make_chart(dataset, caption):
     addline('</tr>')
     addline('</table>')
     
+    return '\n'.join(output)
+    
+def make_css():
+    """
+    Generates basic CSS to display the bar chart
+    """
+    output = []
+    addline = output.append
+    output.append('table.makechart { border-collapse: collapse; border: 1px solid #ccc; font-size: 1em; }')
+    output.append('table.makechart caption { font-weight: bold; font-size: 130%; text-align: center; }')
+    output.append('table.makechart th, table.makechart td { border: 1px solid #ccc; padding: 0; }')
+    output.append('table.makechart .bar td { height: 300px; text-align: center; vertical-align: bottom; }')
+    output.append('table.makechart .bar td div { text-align: center; width: 100%; background: red; color: white; }')
+    output.append('table.makechart .label td { text-align: center; vertical-align: top; padding: 1px; padding-bottom: 1em; background: #eef; color: darkblue; font-size: .8em; }')
+    return '\n'.join(output)
+    
+def make_html(chart, css=make_css()):
+    """
+    Makes an HTML page.
+    """
+    output = []
+    addline = output.append
+    output.append('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" ')
+    output.append('"http://www.w3.org/TR/html4/strict.dtd">')
+    output.append('<html lang="en">')
+    output.append('<head>')
+    output.append('<meta name="author" content="Ryan McGreal">')
+    output.append('<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">')
+    output.append('<meta http-equiv="Content-Style-Type" content="text/css">')
+    output.append('<meta name="generator" content="MakeChart; url=http://quandyfactory.com/projects/56/makechart">')
+    output.append('<title>Make Chart Example</title>')
+    output.append('<style type="text/css">@import "/static/styles/style.css";')
+    output.append(css)
+    output.append('</style>')
+    output.append('</head>')
+    output.append('<body>')
+    output.append(chart)
+    output.append('</body>')
+    output.append('</html>')
     return '\n'.join(output)
     
