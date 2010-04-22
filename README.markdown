@@ -22,7 +22,12 @@ MakeChart is a simple script written in Python that takes an array and generates
 * Changes:
     * First commit
 
-##Using MakeChart
+###Using MakeChart
 
 Save makechart.py in your PATH. See included `example.py` file for basic usage demonstration.
 
+###Wish List
+
+* Make the bar height editable
+* Add command line execution (via optparse)
+* Make it a class?
