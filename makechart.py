@@ -16,8 +16,11 @@ def add_sep(n, sep=','):
     Pilfered from here: http://snippets.dzone.com/posts/show/584
     Added logic to deal with decimals.
     """
-    string = str(abs(n))[::-1].split('.') # deal with decimals
+    string = str(n).split('.') # deal with decimals
     s = string[0]
+    
+    if len(s) < 4: return str(n)
+    
     try: decimal = '.%s' % (string[1])
     except: decimal = ''
         
