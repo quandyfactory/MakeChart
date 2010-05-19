@@ -17,5 +17,5 @@ html = makechart.make_html(chart)
 
 file = open('makechart_example.html', 'w')
 file.write(html)
-file.close
+file.close()
 
