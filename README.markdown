@@ -11,10 +11,16 @@ MakeChart is a simple script written in Python that takes an array and generates
 
 ###This Version
 
-* Version: 0.1
+* Version: 0.2
 * Release Date: 2010-04-21
 
 ###Revision History
+
+####Version 0.2
+
+* Release Date: 2010-07-06
+* Changes:
+    * Moved bar title attribute from the <div> up to the <td> so you can see the bar title anywhere on the table cell.
 
 ####Version 0.1
 
