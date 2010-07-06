@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 __title__ = 'MakeChart'
-__version__ = 0.1
+__version__ = 0.2
 __author__ = "Ryan McGreal ryan@quandyfactory.com"
 __homepage__ = "http://quandyfactory.com/projects/56/makechart"
 __copyright__ = "(C) 2009 by Ryan McGreal. Licenced under GNU GPL 2.0\nhttp://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
@@ -70,7 +70,7 @@ def make_chart(dataset, caption, unit=''):
     ratio = make_ratio(highest_value, 200)
     for datum in dataset:
         
-        bars.append('<td class="bar"><div style="height: %spx" title="%s: %s %s"></div></td>' % (int(int(datum[1])*ratio), datum[0], add_sep(datum[1]), unit))
+        bars.append('<td title="%s: %s %s" class="bar"><div style="height: %spx"></div></td>' % (datum[0], add_sep(datum[1]), unit, int(int(datum[1])*ratio)))
         labels.append('<td>%s</td>' % (vertical(datum[0])))
     
     addline('<table class="makechart">')
